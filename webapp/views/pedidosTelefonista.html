@@ -1,0 +1,110 @@
+<div class="page-header">
+<div ng-controller="pedidosTelefonista">
+   <div class="well well-sm">
+		  	<center><h2><b class="fa fa-cutlery"> Pedidos</b></h2></center>
+		</div>
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			
+			<div class="row" style="margin-bottom: 30px;">
+			
+			  <div class="col-md-10 col-xs-12">
+			    <div class="input-group">
+			      
+			      <input type="text" id="pesquisa" ng-model="pesquisa" class="form-control" placeholder="Pesquisa">
+			      <span class="input-group-btn" >
+			        <button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+			      </span>
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-6 -->
+			  
+			  <span class="col-md-2 col-xs-12" ng-class="{active: activetab == '/cadastrar'}">
+			  	
+			 	 <a class="btn btn-default"  href="#/cadastrarPedidosTelefonista"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Pedido</a>
+			  </span>
+			  			  
+			</div><!-- /.row -->
+			
+			<div class="table-responsive">
+				<table class="table table-hover">
+				  <thead style="background: #F5F5F5;">
+					    <tr>
+					      <th><center>#</center></th>
+					      <th><center>Tempo de Espera</center></th>
+					      <th><center>Telefone</center></th>
+					      <th><center>Descrição</center></th>
+					      <th width="160px"><center>Ações</center></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  <tr ng-repeat="pedido in pedidos | filter:pesquisa">
+					  	<td><center>{{pedido.numero}}</center></td>
+						<td><center>{{pedido.tempoEspera}}</center></td>
+			    		<td><center>{{pedido.telefone}}</center></td>
+			    		<td><center>{{pedido.descricao}}</center></td>
+			    		<td width="250px">
+			    			<center>
+			    				<a class="btn btn-success btn-xs" ng-click="deletar(pedido, $index)"><i class="fa fa-check-square-o" aria-hidden="true"></i> Finalizar</a>
+						      	<a href="#/alterarPedidosTelefonista" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar</a>
+						      	<a type="button" class="btn btn-danger btn-xs" ng-click="cancelar(pedido)" data-toggle="modal" data-target="#modalCancelar"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
+						    </center>
+						</td>
+			    	  </tr>					  
+					  </tbody>
+					</table>			
+			</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="modalCancelar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar Pedido</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal" name="formCancelar">
+			  <fieldset>
+			    <legend>Permissão Superior</legend>
+			    			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Descrição</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="2" ng-model="descPedidoCancelar" disabled></textarea>
+			      </div>
+			    </div>	
+			    			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Motivo</label>
+			      <div class="col-lg-10">
+			        <textarea name="motivoModal" ng-model="motivoModal" class="form-control" rows="3" id="motivoModal" required></textarea>
+			        <input type="text" ng-model="idPedidoCancelar" ng-bind="motivoModal">
+			        <span class="help-block">Digite detalhadamente o motivo do cancelamento.</span>
+			      </div>
+			    </div>
+			    
+			    <div class="form-group">
+			      <label for="senha" class="col-lg-2 control-label">Senha</label>
+			      <div class="col-lg-10">
+			        <input type="password" ng-model="senhaModal" name="senhaModal" class="form-control" id="senhaModal" placeholder="senha" required>
+			      </div>
+			    </div>
+			    
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+        <a class="btn btn-danger" data-dismiss="modal" id="btConfirmaCancelamento" ng-disabled="formCancelar.motivoModal.$invalid && formCancelar.senhaModal.$invalid" ng-click="deletar(idPedidoCancelar)"><i class="fa fa-times-circle" aria-hidden="true"></i> Confirmar</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

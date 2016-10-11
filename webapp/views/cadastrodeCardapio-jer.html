@@ -1,0 +1,128 @@
+<link href="lib/bootstrap/css/w3.css" rel="stylesheet">
+<div class="page-header">
+<div ng-init="item = [{prato: 'Arroz Carreteiro', bebida: 'Coca-cola', doces: 'petit-gateau c/ sorvete chocolate'},
+						{prato: 'Panqueca', bebida: 'Guaraná 2l', doces: 'Browne c/ sorvete baunilha'},
+						{prato: 'Bife chorizo', bebida: 'Agua tônica', doces: 'petit-gateau c/ sorvete castalha'},
+						{prato: 'Macarronada especial', bebida: 'H2Oh', doces: 'petit-gateau c/ sorvete morango'}]"></div>
+
+
+		<div class="well well-sm">
+		  	<center><h2><b class="fa fa-plus-circle"> Cadastrar Cardápio</b></h2></center>
+		</div>
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			<form class="form-horizontal">
+			
+		<div class="row" style="margin-bottom: 10px;">
+				<span class="col-md-2" style="float: right; margin-top: 15px;">
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAdidionarItem"><i class="fa fa-plus-circle" aria-hidden="true" style=""></i> Novo Item</button>
+				</span>
+		</div>
+		
+		<div class="w3-container">
+
+		
+		  <table class="w3-table w3-bordered">
+		    <thead>
+		      <tr class="w3-light-grey">
+		        <th><center>Pratos</center></th>
+		        <th><center>Bebidas</center></th>
+		        <th><center>Sobremesas</center></th>
+		        <th><center>Ação</center></th>
+		      </tr>
+		    </thead>
+		    <tr ng-repeat="itens in item | filter:pesquisa">
+		      <td><center>{{itens.prato}}</center></td>
+		      <td><center>{{itens.bebida}}</center></td>
+		      <td><center>{{itens.doces}}</center></td>
+		      
+		      	<td>
+		       	<center>
+		      		<a ng-class="{active: activetab == '/alterar'}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Remover</a>
+		       	</center>
+		       	
+				</td>
+		    </tr>
+		   
+		  </table>
+		</div>
+	
+		<div style="float: right; margin: 20px; margin-top: 15px;">
+			<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+			<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarCardapio"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+		</div>
+</form>
+</div>	 
+		  
+
+<!-- Modal -->
+<div id="modalAdidionarItem" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Adicionar</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			  <div class="col-md-9">			    
+				    <span class="form-group">
+				      <label for="item" class="control-label">Prato</label>
+				      <input type="text" required autocomplete="off" class="form-control" id="prato" placeholder="prato">
+				    </span>
+			    </div>
+			    
+			    <div class="col-md-9">  
+				    <span class="form-group">
+				      <label for="quantidadeItem" class="control-label">Bebida</label>
+				      <input type="text" required autocomplete="off" class="form-control" id="bebida" placeholder="bebida">
+				    </span>
+			    </div>
+			    
+			    <div class="col-md-9">
+				    <span class="form-group">
+				      <label for="quantidadeItem" class="control-label">Sobremesa</label>
+				      <input type="text" required autocomplete="off" class="form-control" id="sobremesa" placeholder="sobremesa">
+				    </span>
+			    </div>
+			  </fieldset>
+			</form>
+      	</div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AdicionaLinhaCardapio();"><i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar</button>
+      </div>
+      	
+      	</div>
+    </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div id="modalSalvarCardapio" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="alert alert-success">
+      		<center>
+      			Cardápio salvo com sucesso. <p>
+      		</center>
+      		
+      	</div>
+      </div>
+     </div>
+    </div>
+</div>
+      	
+</div>
+</div>

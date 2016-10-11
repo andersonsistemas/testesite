@@ -1,0 +1,106 @@
+<div class="page-header">
+<div ng-init="pagamentos = [{numero: 1, garcom: 'Marcelo Santos', valor: '230,00'},
+                         {numero: 4, garcom: 'Caio Alves', valor: '39,00'},
+                         {numero: 33, garcom: 'Fernando Lopes', valor: '28,90'},
+                         {numero: 29, garcom: 'João Pedro', valor: '10,00' },
+                         {numero: 41, garcom: 'Carlos Pereira', valor: '110,00' }]"></div>
+
+   <div class="well well-sm">
+		  	<center><h2><b class="fa fa-dollar"> Pagamentos</b></h2></center>
+		</div>
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			
+			<div class="row distanciaTop-30 box" >
+			
+			  <div class="col-xs-12">
+			    <div class="input-group">
+			      
+			      <input type="text" id="pesquisa" ng-model="pesquisa" class="form-control" placeholder="Pesquisa">
+			      <span class="input-group-btn" >
+			        <button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+			      </span>
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-6 -->
+			  
+			  
+			</div><!-- /.row -->
+			
+			<div class="table-responsive box-white row">
+				<table class="table table-hover">
+				  <thead style="background: #F5F5F5;">
+					    <tr>
+					      <th><center># Pedido</center></th>
+					      <th><center>Garçom</center></th>
+					      <th><center>Valor (R$)</center></th>
+					      <th class="width-actions-250"><center>Ações</center></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  <tr ng-repeat="pagamento in pagamentos | filter:pesquisa">
+					  	<td><center>{{pagamento.numero}}</center></td>
+			    		<td><center>{{pagamento.garcom}}</center></td>
+			    		<td><center>{{pagamento.valor}}</center></td>
+			    		<td>
+			    			<center>
+						      	<a href="#/receber" class="btn btn-success"><i class="fa fa-dollar" aria-hidden="true"></i> Receber</a>
+						      	<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalCancelar"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
+						    </center>
+						</td>
+			    	  </tr>					  
+					  </tbody>
+					</table>			
+			</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="modalCancelar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar Pedido</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			    <legend>Permissão Superior</legend>
+			    			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Descrição</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="2" id="motivo" disabled>Suco de laranja</textarea>
+			      </div>
+			    </div>			    
+			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Motivo</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="3" id="motivo"></textarea>
+			        <span class="help-block">Digite detalhadamente o motivo do cancelamento.</span>
+			      </div>
+			    </div>
+			    
+			    <div class="form-group">
+			      <label for="senha" class="col-lg-2 control-label">Senha</label>
+			      <div class="col-lg-10">
+			        <input type="password" class="form-control" id="senha" placeholder="senha">
+			      </div>
+			    </div>
+			    
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

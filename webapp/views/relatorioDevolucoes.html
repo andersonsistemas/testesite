@@ -1,0 +1,143 @@
+<div class="page-header">
+                <div class="well well-sm">
+                    <center><h2><b class="fa fa-cutlery"> Relatório de Devoluções</b></h2></center>
+                </div>
+		
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			<form class="form-group">
+				<legend>Periodo</legend>
+	        <div class="container">
+                                  <!-- Periodo init -->
+                 <div class="well well-sm">
+                    <form name="datarelatorio" ng-controller="DateController">
+                       <label>Inicio:  <b class="fa fa-calendar-o"> </b> </label>
+                            <input type="date" id="datainicial" name="datainicial" ng-model="datainicial" placeholder="dd-mm-aaaa"  required />
+                        <label>Final:  <b class="fa fa-calendar-o"> </b></label>
+                            <input type="date" id="datafinal" name="datafinal" ng-model="datafinal" placeholder="dd-mm-aaaa" required />
+                                             <!-- Radio Group init-->
+                                                <md-radio-group ng-model="tipoRelatorio">
+                                                    <label><input  type="radio" ng-model="tipoRelatorio.nome" checked="checked">Todos</label>
+                                                    <label><input type="radio" ng-model="tipoRelatorio.nome" value="1">Refeicoes</label>
+                                                    <label> <input type="radio" ng-model="tipoRelatorio.nome" value="2"> Bebidas</label>
+                                                </md-radio-group>
+                                            <!-- Radio Group end-->
+                               <div role="alert">
+                                     <span class="error" ng-show="datarelatorio.input.$error.required">
+                                         Required!</span>
+                                     <span class="error" ng-show="datarelatorio.$error.date">
+                                         Not a valid date!</span>
+                                </div>
+                    </form>
+                 </div>
+
+                          <!-- Periodo end -->
+
+                          <!-- Filtros - begin (html-basico) -->
+                          <legend>Filtros</legend>
+                    <form class="form-inline">
+                        <div class="form-group">
+                          <label>Regiao:</label>
+                                      <select class="selectpicker">
+                                              <option>Todas</option>
+                                              <option>Regiao 1</option>
+                                              <option>Regiao 2</option>
+                                             <option>Regiao 3</option>
+                                        </select>
+
+                            <label>Garçom:</label>
+                                      <select class="selectpicker">
+                                              <option>Todos</option>
+                                              <option>Carlos</option>
+                                              <option>Fernando</option>
+                                             <option>Geraldo</option>
+                                        </select>
+                            <label>Entrega:</label>
+                                      <select class="selectpicker">
+                                              <option>Todos</option>
+                                              <option>Sim</option>
+                                              <option>Nao</option>
+                                        </select>
+                            <label>Forma de Pagamento:</label>
+                                      <select class="selectpicker">
+                                              <option>Todos</option>
+                                              <option>Dinheiro</option>
+                                              <option>Cartao</option>
+                                            <option>Cheque</option>
+                                        </select>
+                            <br><br>
+                            <label>Operadora de Caixa:</label>
+                                      <select class="selectpicker">
+                                              <option>Todas</option>
+                                              <option>Maria</option>
+                                              <option>Joana</option>
+                                            <option>Abadia</option>
+                                        </select>
+                            <label>Telefonista:</label>
+                                      <select class="selectpicker" >
+                                              <option>Todas</option>
+                                              <option>Simone</option>
+                                              <option>Geralda</option>
+                                            <option>Joaquina</option>
+                                        </select>
+                    </form>
+             <!-- Filtros - end (html-basico) -->
+
+
+	            </div><!-- end container -->
+
+                    <div class="text-right">
+                        <a href="#/cadastrarFuncionario" class="btn btn-default" ng-class="{active: activetab == '/cadastrarFuncionario'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+                        <a class="btn btn-warning" data-toggle="modal" data-target="#modalVisualizar"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
+                        <a class="btn btn-info" data-toggle="modal" data-target="#modalImprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</a>
+                    </div>
+	        </div>
+	
+</div>
+
+
+            <!-- Modal  Visualizar-->
+            <div id="modalVisualizar" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                       <meta charset="UTF-8">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-cutlery" aria-hidden="true"></i> Relatório de Devoluções</h4>
+                          </div>
+                          <div class="modal-body">
+                              <img src="relatorio_devolucao.png" alt="Relatório Devolução" style="width:500px;height:448px;">
+                            </div>
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
+                                  <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+
+
+        <!-- Modal Imprimir-->
+        <div id="modalImprimir" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <meta charset="UTF-8">
+                <!-- Modal content-->
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"></button>
+                            <h4 class="modal-title"><i class="fa fa-print" aria-hidden="true"></i> Impressão de Relatório</h4>
+                        </div>
+                            <div class="modal-body">
+                                Enviado para Impressora Padrão do Sistema!
+                            </div>
+                                <div class="text-right">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                </div>
+                </div>
+
+
+
+            </div>
+
+        </div>

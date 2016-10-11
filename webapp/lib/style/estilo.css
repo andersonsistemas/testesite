@@ -1,0 +1,110 @@
+body{
+  
+  font-size: 16px;
+  padding-top: 40px;
+}
+
+.maps {
+  background: url(../../images/rota.gif) no-repeat center;
+  background-size: cover; /*Css padrão*/
+  -webkit-background-size: cover; /*Css safari e chrome*/
+  -moz-background-size: cover; /*Css firefox*/
+  -ms-background-size: cover; /*Css IE não use mer#^@%#*/
+  -o-background-size: cover; /*Css Opera*/
+  
+}
+
+
+div.box { 
+    padding          : 10px;
+    border-radius    : 6px;
+    border           : 1px solid lightgray;
+    
+background: -moz-linear-gradient(top,#fff,#ddd) repeat-X;
+ 
+
+background: -webkit-gradient(linear, left top, left bottom, to(#ddd), from(#fff)) repeat-X;
+ 
+-webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+
+
+}
+
+div.box-white { 
+    padding          : 10px 10px 0px 10px;
+    border-radius    : 6px;
+    border           : 1px solid lightgray;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+	
+}
+
+.oculto { 
+    display: none;
+}
+
+.width-actions{
+	width: 350px;
+}
+
+.width-actions-250{
+	width: 250px;
+}
+.well {
+	
+	-webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
+.distanciaTop-30 {
+	margin-bottom: 30px;
+}
+
+.jumbotron {
+	background:white; 
+	border: solid; 
+	border-width: 1px; 
+	border-color: lightgray;
+}
+
+  
+@media screen and (max-width: 1024px){
+    img.bg {
+    left: 50%;
+    margin-left: -512px;
+}
+}
+If you would like to add content over your slider image copy and paste the code below into your css document. The code below is just a content div that holds our content. I position the background and gave it a -1 z-index so it would appear below our content div below.
+
+#content {
+    width: 920px;
+    margin: 0 auto;
+    background: rgba(11,11,11, 0.5);
+    padding: 20px;
+}
+
+.circulo{
+		width:100px;
+		height:100px;
+		border-radius:50%;
+		border:3px solid #000;
+		z-index:5;
+		position:relative;
+		background: -moz-linear-gradient(top,#fff,#ddd) repeat-X;
+ 
+
+background: -webkit-gradient(linear, left top, left bottom, to(#ddd), from(#fff)) repeat-X;
+ 
+		
+		}
+		.img{
+			z-index:1;
+			width:50px;
+            height:50px;
+            float: right;
+			
+		}

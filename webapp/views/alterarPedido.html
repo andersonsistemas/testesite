@@ -1,0 +1,194 @@
+<div class="page-header">
+	<div ng-init="itens = [{numero: 1, descricao: 'Feijão tropeiro', quantidade: '2'},
+	                         {numero: 2, descricao: 'Arroz branco', quantidade: '2'},
+	                         {numero: 3, descricao: 'Suco de laranja', quantidade: '2'}]"></div>
+                         
+        <div class="well well-sm">
+		  	<center><h2><b class="fa fa fa-pencil-square-o"> Alterar Pedido</b></h2></center>
+		</div>
+		
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			<form class="form-horizontal">
+			  
+			    <legend>Dados do Cliente</legend>    
+			    <span class="col-md-10">			    
+				    <span class="form-group">
+				      <label for="nomCliente" class="control-label">Nome</label>
+				 	  <input type="text" class="form-control" id="nomCliente" placeholder="Cliente" value="Priscila Alcântara">
+	   		        </span>
+   		        </span>
+   		        
+   		        <span class="col-md-2">	
+	   		        <span class="form-group">
+	   		        	<label for="carroCliente" class="control-label">Possui carro</label>
+	   		        	<div class="radio" name="carroCliente">
+	   		        	  <label><input checked="checked"  type="radio" name="carroCliente" onclick="carroClientes();" value="2">Não</label>
+						  <label><input type="radio" name="carroCliente" onclick="carroClientes();" value="1">Sim</label>
+						  
+						</div>		    
+				    </span>
+				</span>		   
+			    
+			   	<div id="dadosCarro" class="oculto">
+			   		<legend>Dados do Carro</legend>
+			   		<div class="col-md-6">
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Marca/Modelo</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Marca/Modelo">
+		   		        </span>
+	   		        </div>
+	   		        
+	   		        <div class="col-md-3">
+		   		        <span class="form-group">
+					      <label for="nomCliente" class="control-label">Placa</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Placa">
+		   		        </span>
+	   		        </div>
+	   		        
+	   		        <div class="col-md-3">
+		   		        <span class="form-group">
+					      <label for="nomCliente" class="control-label">Cor</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Cor">
+		   		        </span>
+	   		        </div>
+   		        </div>
+			    		    
+			</form>
+			<legend>Dados do Pedido</legend>
+			
+			<div class="row" style="margin-bottom: 20px;">
+				<span class="form-group col-md-1">
+				  <label for="numero">Nº</label>
+				  <input class="form-control input-sm" id="numero" name="numero" value="34" type="text" disabled>
+				</span>
+				
+				<span class="form-group col-md-1">
+				  <label for="mesa">Mesa</label>
+				  <input class="form-control input-sm" id="mesa" name="mesa" value="10" type="text" disabled>
+				</span>
+				
+				<span class="col-md-2" style="float: right; margin-top: 25px;">
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAdidionarItem"><i class="fa fa-plus-circle" aria-hidden="true" style=""></i> Novo Item</button>
+				</span>
+			</div>
+			
+			<div id= "divItensPedido" class="table-responsive">
+				<table class="table table-hover" id="itensPedido">
+				  <thead style="background: #F5F5F5;">
+					    <tr>
+					      <th><center>#</center></th>
+					      <th><center>Descrição</center></th>
+					      <th><center>Quantidade</center></th>
+					      <th width="200px"><center>Ações</center></th>
+					    </tr>
+					  </thead>
+					  <tr ng-repeat="item in itens">
+					  	<td><center>{{item.numero}}</center></td>
+			    		<td><center>{{item.descricao}}</center></td>
+			    		<td>
+							<center>
+								<span class=""><i class="fa fa-plus-square" aria-hidden="true"></i></span>
+								<span> {{item.quantidade}}</span>
+								<span class=""><i class="fa fa-minus-square" aria-hidden="true"></i></span>
+							</center>
+						</td>
+			    		
+			    		<td>
+			    			<center>
+						      	
+						      	<a type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modalCancelar"><i class="fa fa-times-circle" aria-hidden="true"></i> Devolver</a>
+						      	<a ng-class="{active: activetab == '/alterar'}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Remover</a>
+						    </center>
+						</td>
+			    	  </tr>	
+					  <tbody>
+					    
+					  </tbody>
+					</table>			
+			</div>
+			<span class="row">	
+   		        <span>   		        	
+   		        	  <label><input checked="checked"  type="checkbox" name="servir" value="1">Entregar pratos e bebidas juntos</label>
+					      
+			    </span>
+			</span>	
+			<div style="float: right;">
+				<a href="#/pedidosGarcom" class="btn btn-default" ng-class="{active: activetab == '/'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+				<a class="btn btn-primary" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+			</div>
+					
+	</div>
+	
+</div>
+
+<!-- Modal -->
+<div id="modalAdidionarItem" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			  <div class="col-md-9">			    
+				    <span class="form-group">
+				      <label for="item" class="control-label">Item</label>
+				  
+				      <input type="text" required autocomplete="off" class="form-control" id="item" placeholder="item">
+				  
+				    </span>
+			    </div>
+			    
+			    <div class="col-md-3">
+				    <span class="form-group">
+				      <label for="quantidadeItem" class="control-label">Quantidade</label>
+				 	  <input type="number" class="form-control" id="quantidadeItem" placeholder="QTD" required="required" autocomplete="off">
+				  
+				    </span>
+			    </div>
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal"> <i class="fa fa-reply" aria-hidden="true"></i>Voltar</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AdicionaLinha();"><i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalSalvarPedido" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="alert alert-success">
+      		<center>
+      			Alterações salvas com sucesso. 
+      		</center>
+      		
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a ng-click="salvar()" class="btn btn-default" ng-class="{active: activetab == '/'}">Ok</a>
+       
+      </div>
+    </div>
+
+  </div>
+</div>

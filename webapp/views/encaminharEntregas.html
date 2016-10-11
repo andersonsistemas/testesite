@@ -1,0 +1,99 @@
+<div class="page-header">
+<div ng-init="entregas = [{numero: 1, telefonista: 'Fernanda Almeida', valor: '39,00', formaPgto: 'Cartao', troco:' - '},
+                         {numero: 4, telefonista: 'joana Carvalho', valor: '76,80', formaPgto: 'Dinheiro', troco:'23,20'},
+                         {numero: 6, telefonista: 'joana Carvalho', valor: '130,90', formaPgto: 'cartao', troco:' - '},
+                         {numero: 16, telefonista: 'Júlia Lara', valor: '45,00', formaPgto: 'Dinheiro', troco:'55,00'},
+                         {numero: 20, telefonista: 'Fernanda Almeida', valor: '205,90', formaPgto: 'cartao', troco:' - '}]"></div>
+
+   <div class="well well-sm">
+		  	<center><h2><b class="fa fa-motorcycle"> Entregas</b></h2></center>
+		</div>
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			
+			<div class="table-responsive box-white">
+				<table class="table table-hover">
+				  <thead style="background: #F5F5F5;">
+					    <tr>
+					      <th><center><i class="fa fa-check-square-o" aria-hidden="true"></i></center></th>
+					      <th><center>#</center></th>
+					      <th><center>Telefonista</center></th>
+					      <th><center>Valor</center></th>
+					      <th><center>Forma de Pagamento</center></th>
+					      <th><center>Troco</center></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  <tr ng-repeat="entrega in entregas">
+					  	<td><center><input type="checkbox" value="1" checked="checked"></center></td>
+					  	<td><center>{{entrega.numero}}</center></td>
+			    		<td><center>{{entrega.telefonista}}</center></td>
+			    		<td><center>{{entrega.valor}}</center></td>
+			    		<td><center>{{entrega.formaPgto}}</center></td>
+			    		<td><center>{{entrega.troco}}</center></td>			    		
+			    	  </tr>					  
+					  </tbody>
+					</table>			
+							
+			</div>
+			
+			<hr>			
+			<div class="row" style="float:right;">
+				<span class="col-md-12">
+					<a href="#/entregas" class="btn btn-default"> <i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+		        	<a href="#/encaminharEntregasConfirmacao" class="btn btn-primary"><i class="fa fa-motorcycle" aria-hidden="true"></i> Confirmar</a>
+	        	</span>
+	        </div>		
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="modalCancelar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar Pedido</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			    <legend>Permissão Superior</legend>
+			    			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Descrição</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="2" id="motivo" disabled>Suco de laranja</textarea>
+			      </div>
+			    </div>			    
+			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Motivo</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="3" id="motivo"></textarea>
+			        <span class="help-block">Digite detalhadamente o motivo do cancelamento.</span>
+			      </div>
+			    </div>
+			    
+			    <div class="form-group">
+			      <label for="senha" class="col-lg-2 control-label">Senha</label>
+			      <div class="col-lg-10">
+			        <input type="password" class="form-control" id="senha" placeholder="senha">
+			      </div>
+			    </div>
+			    
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+        <a class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Confirmar</a>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,191 @@
+<div class="page-header">
+        <div class="well well-sm">
+		  	<center><h2><b class="fa fa-plus-circle"> Cadastrar Pedido</b></h2></center>
+		</div>
+		
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			<form class="form-horizontal">
+			  
+			    <legend>Dados do Cliente</legend> 
+			    <div clss="row">   
+				    <span class="col-md-9">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Nome</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Cliente">
+		   		        </span>
+	   		        </span>
+	   		        
+	   		        <span class="col-md-3">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Telefone</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="(62) 99999-9999">
+		   		        </span>
+	   		        </span>   
+			    </div>
+			    
+			    <legend>Dados da Entrega</legend> 
+			    <div clss="row">   
+				    <span class="col-md-6">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Logradouro</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Logradouro">
+		   		        </span>
+	   		        </span>
+	   		        
+	   		        <span class="col-md-4">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Bairro</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Bairro">
+		   		        </span>
+	   		        </span>
+	   		        <span class="col-md-2">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">CEP</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="99999-999">
+		   		        </span>
+	   		        </span>
+	   		        
+	   		        <span class="col-md-2">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Nº</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="99">
+		   		        </span>
+	   		        </span> 
+	   		        
+	   		        <span class="col-md-2">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">lote</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="99">
+		   		        </span>
+	   		        </span>  
+	   		        <span class="col-md-2">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Quadra</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="99">
+		   		        </span>
+	   		        </span>
+	   		        
+	   		        <span class="col-md-3">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Cidade</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Ex.: Goiânia">
+		   		        </span>
+	   		        </span>
+	   		        
+	   		        <span class="col-md-3">			    
+					    <span class="form-group">
+					      <label for="nomCliente" class="control-label">Referencia</label>
+					 	  <input type="text" class="form-control" id="nomCliente" placeholder="Ponto de referência">
+		   		        </span>
+	   		        </span>
+	   		        
+			    </div>
+			    			    		    
+			</form>
+			<legend>Dados do Pedido</legend>
+			
+			<div class="row" style="margin-bottom: 20px;">
+				
+				<span class="col-md-2" style="float: right;">
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAdidionarItem"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</button>
+				</span>
+			</div>
+			
+			<div id= "divItensPedido" class="table-responsive oculto">
+				<table class="table table-hover" id="itensPedido">
+				  <thead style="background: #F5F5F5;">
+					    <tr>
+					      <th><center>#</center></th>
+					      <th><center>Descrição</center></th>
+					      <th width="150px"><center>Quantidade</center></th>
+					      <th><center>Ação</center></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    
+					  </tbody>
+					</table>			
+			</div>
+			<div style="float: right;">
+				<a href="#/pedidosTelefonista" class="btn btn-default"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+				
+				<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarPedido"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+				
+			</div>
+					
+	</div>
+	
+</div>
+
+<!-- Modal -->
+<div id="modalAdidionarItem" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Item</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			  <div class="col-md-9">			    
+				    <span class="form-group">
+				      <label for="item" class="control-label">Item</label>
+				  
+				      <input type="text" required autocomplete="off" class="form-control" id="item" placeholder="item">
+				  
+				    </span>
+			    </div>
+			    
+			    <div class="col-md-3">
+				    <span class="form-group">
+				      <label for="quantidadeItem" class="control-label">Quantidade</label>
+				 	  <input type="number" class="form-control" id="quantidadeItem" placeholder="QTD" required="required" autocomplete="off">
+				  
+				    </span>
+			    </div>
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AdicionaLinha();"><i class="fa fa-plus-circle" aria-hidden="true"></i> Adiconar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalSalvarPedido" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="alert alert-success">
+      		<center>
+      			Pedido salvo com sucesso. <p>
+      			Pedido Número: <h3>34</h3>
+      		</center>
+      		
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a class="btn btn-default" href="#/pedidosTelefonista">Ok</a>
+       
+      </div>
+    </div>
+
+  </div>
+</div>

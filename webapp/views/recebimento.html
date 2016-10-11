@@ -1,0 +1,201 @@
+<div class="page-header">
+
+   <div class="well well-sm">
+		  	<center><h2><b class="fa fa-dollar"> Recebimento</b></h2></center>
+		</div>
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+			<div class="row">
+			
+				<div class="col-md-4">
+					<div class="box">
+						<legend>R$ Valor</legend>
+						
+						<center><h3>130,00</h3></center>
+					</div>
+					
+					<div class="box" style="margin: 10px 0px 10px;">
+						<legend>Forma de Pagamento</legend>
+						<select class="form-control" id="selectFormaPgto" onchange="controlaFormaPgto();">
+							<option value="1" selected>Dinheiro</option>
+							<option value="2">Cartão</option>
+							<option value="3">Cheque</option>
+						</select>
+					</div>
+					
+					<div class="box" style="margin: 10px 0px 10px;" id="divDinheiro">
+						<legend><i class="fa fa-money" aria-hidden="true"></i> Dinheiro</legend>
+						<span>Valor Recebido</span>
+						<input type="number" ng-model="valorRecebido" id="valorRecebido" class="form-control" onchange="calculaTroco();">
+						
+						<span>Troco</span>
+						<input type="number" id="troco" ng-model="troco" class="form-control" disabled>
+						
+					</div>
+					
+					<div class="box oculto" style="margin: 10px 0px 10px;" id="divCartao">
+						<legend><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Cartão</legend>
+						<span>Tipo</span>
+						<select class="form-control">
+							<option value="1" selected>Débito</option>
+							<option value="2">Crédito</option>
+						</select>
+						
+						<span>Bandeira</span>
+						<select class="form-control">
+							<option value="1" selected>Mastercad</option>
+							<option value="2">Visa</option>
+							<option value="3">Elo</option>
+						</select>
+						
+					</div>
+					
+					<div class="box oculto" style="margin: 10px 0px 10px;" id="divCheque">
+						<legend><i class="fa fa-list-alt" aria-hidden="true"></i> Cheque</legend>
+						
+						<span>Vencimento</span>
+						<input type="text" class="form-control datepicker">
+						
+						<span>Núero</span>
+						<input type="text" class="form-control">						
+						
+						<span>Banco</span>
+						<input type="text" class="form-control">
+						
+						<span>CPF (Cliente)</span>
+						<input type="text" class="form-control">
+						
+						<span>Telefone 1</span>
+						<input type="text" class="form-control">
+						
+						<span>Telefone 2</span>
+						<input type="text" class="form-control">
+						
+					</div>
+				</div>
+				
+				<div class="col-md-8">
+					<div class="box">
+	
+						<legend>Cupom Fiscal</legend>
+						<div class="box-white" style="height: 400px;">
+							
+							<center><h3>Restaurante Boa Comida LTDA</h3></center>
+							<p><h5>01/10/2016 18:09:09</h5></p>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<center>001</center>
+										</td>
+										
+										<td>
+											<center>Coca-Cola 2L</center>
+										</td>
+										
+										<td>
+											<center>1</center>
+										</td>
+										
+										<td>
+											<center>12,70</center>
+										</td>
+									</tr>
+									
+									<tr>
+										<td>
+											<center>002</center>
+										</td>
+										
+										<td>
+											<center>Arroz branco</center>
+										</td>
+										
+										<td>
+											<center>3</center>
+										</td>
+										
+										<td>
+											<center>40,90</center>
+										</td>
+									</tr>
+								
+									<tr>
+										<td>
+											<center>003</center>
+										</td>
+										
+										<td>
+											<center>Feijoada</center>
+										</td>
+										
+										<td>
+											<center>3</center>
+										</td>
+										
+										<td>
+											<center>76,40</center>
+										</td>
+									</tr>
+									<tr>
+										<td><center><b>Total</b></center></td>
+										
+										<td></td>
+										
+										<td></td>
+										
+										<td>
+											<center><b>130,00</b></center>
+										</td>
+									</tr>
+								</tbody>	
+							</table>
+							<hr>
+							<span id="formaPgtoCupom">Pagamento em dinheiro</span><p>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<hr>
+			
+			<div class="row" style="float:right;">
+				<span class="col-md-12">
+					<a href="#/pagamentos" class="btn btn-default"> <i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+		        	<a class="btn btn-primary" onclick="AdicionaLinha();" data-toggle="modal" data-target="#modalConfirmarPgto"><i class="fa fa-dollar" aria-hidden="true"></i> Confimar</a>
+	        	</span>
+	        </div>
+	        
+	    </div>
+</div>
+
+<!-- Modal -->
+<div id="modalConfirmarPgto" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+   <meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-dollar" aria-hidden="true"></i> Recebimento</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="alert alert-success">
+      		<center>
+      			Pagamento realizado com sucesso. 
+      		</center>
+      		
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a href="#/pagamentos" class="btn btn-default" ng-class="{active: activetab == '/pagamentos'}">Ok</a>
+       
+      </div>
+    </div>
+
+  </div>
+</div>
+

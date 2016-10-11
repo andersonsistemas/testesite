@@ -1,0 +1,110 @@
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+        <div class="well well-sm">
+		  	<center><h2><b class="fa fa-user"> Alterar Funcionario</b></h2></center>
+        </div>
+
+		<div class="jumbotron" style="background:white; border: solid; border-width: 1px; border-color: lightgray;">
+				<legend>Dados do Funcionario</legend>
+		     <div class="container">
+ 		                 <form class="form-inline">
+                                 <div class="form-group">
+                                     <label for="nome">Nome:</label>
+                                      <input type="text" class="form-control input-sm" id="nome" placeholder="Nome do Funcionário">
+                                     <label for="cpf">CPF:</label>
+                                    <input type="text" class="form-control input-sm" id="cpf" placeholder="CPF">
+                                 </div>
+                        </form>
+                            <br>
+                        <form class="form-inline">
+                                    <div class="form-group">
+                                         <label for="nome">Cargo:</label>
+                                               <select id="cargo" class="selectpicker">
+                                                  <option>Telefonista</option>
+                                                  <option>Garçom</option>
+                                                  <option>Cozinheiro</option>
+                                                  <option>Gerente</option>
+                                                </select>
+                                                      <label for="telefone">Telefone:</label>
+                                                      <input type="text" class="form-control input-sm" id="telefone" placeholder="Telefone">
+                                                      <label for="cep">CEP:</label>
+                                                      <input type="text" class="form-control input-sm" id="cep" placeholder="CEP">
+                                    </div>
+                        </form>
+                                    <br>
+                                     <form class="form-group">
+                                         <label for="logradouro">Logradouro:</label>
+                                         <input type="text" class="form-control input-lg" id="logradouro" placeholder="Logradouro">
+                                     </form>
+                                             <br>
+                                <form class="form-inline">
+                                        <form class="form-group">
+                                             <label for="numeroFachada">Numero:</label>
+                                             <input type="text" class="form-control input-sm" id="numeroFachada" placeholder="Numero">
+                                            <label for="quadra">Quadra:</label>
+                                            <input type="text" class="form-control input-sm" id="quadra" placeholder="Quadra">
+                                            <label for="lote">Lote:</label>
+                                            <input type="text" class="form-control input-sm" id="lote" placeholder="Lote">
+                                                <label for="cidade">Cidade:</label>
+                                                    <select id="cidade" class="selectpicker">
+                                                        <option>Goiania</option>
+                                                        <option>Ap de Goiania</option>
+                                                        <option>Anapolis</option>
+                                                        <option>Trindade</option>
+                                                    </select>
+                                        </form>
+                                </form>
+                                        <br>
+                                <form class="form-inline">
+                                            <form class="form-group">
+                                                <label for="bairro">Bairro:</label>
+                                                <select id="bairro" class="selectpicker">
+                                                        <option>Jardim Guanabara III</option>
+                                                        <option>Bairro Ipiranga</option>
+                                                        <option>Setor Central</option>
+                                                        <option>Setor Campinas</option>
+                                                     </select>
+                                                <label for="pontoReferencia">Referencia:</label>
+                                                <input type="text" class="form-control input-sm" id="pontoReferencia" placeholder="Referencia">
+                                                </form>
+                                     </form><br>
+                 <legend>Dados de Acesso</legend>
+                            <form class="form-inline">
+                                <form class="form-group">
+                                    <label>Senha:</label>
+                                    <input type="password" class="form-control input-sm" ng-model="senha" placeholder="Senha">
+                                    <label>Confirmação:</label>
+                                    <input type="password" class="form-control input-sm" ng-model="confirmacao" placeholder="Confirmação">
+
+                                </form>
+                            </form><br><br>
+                <div class="text-right">
+				<a href="#/cadastrarFuncionario" class="btn btn-default" ng-class="{active: activetab == '/cadastrarFuncionario'}"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+				<a class="btn btn-info" data-toggle="modal" data-target="#modalSalvarFuncionario"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</a>
+				</div>
+	         </div>
+
+
+                            <!-- Modal  SalvarPedido-->
+                <div id="modalSalvarFuncionario" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <meta charset="UTF-8">
+                                <!-- Modal content-->
+                               <div class="modal-content">
+                                              <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                  <h4 class="modal-title"><i class="fa fa-floppy-o" aria-hidden="true"></i> Alteração do Cadastro de Funcionário</h4>
+                                              </div>
+                                          <div class="modal-body">
+                                            <div class="alert alert-success">
+                                                <center>
+                                                    Alteração de Funcionario Salva com Sucesso.
+                                                </center>
+                                            </div>
+                                          </div>
+                                      <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                      </div>
+                              </div>
+                        </div>
+                </div>
+</div>

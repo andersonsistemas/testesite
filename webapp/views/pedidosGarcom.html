@@ -1,0 +1,120 @@
+
+<div class="page-header">
+	
+	<!-- Barra de título -->
+	<div class="well well-sm">
+		<center>
+			<h2>
+				<b class="fa fa-cutlery"> Pedidos</b>
+			</h2>
+		</center>
+	</div>
+	
+	<!-- Box principal -->
+	<div class="jumbotron">
+		<div class="row distanciaTop-30 box">
+			<div class="col-md-10 col-xs-12">
+  				<div class="input-group">    
+    				<input type="text" id="pesquisa" ng-model="pesquisa" class="form-control" placeholder="Pesquisa">
+    					<span class="input-group-btn" >
+      						<button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+    					</span>
+  				</div>
+			</div>  
+  			<span class="col-md-2 col-xs-12">  	
+ 	 			<a class="btn btn-default"  href="#/cadastrar"><i class="fa fa-plus-circle" aria-hidden="true"></i> Novo Pedido</a>
+  			</span>  
+		</div>
+		<div class="row table-responsive box-white">
+			<table class="table table-hover" style="background:white; border-radius:6px;">
+				<thead>
+					<tr>
+						<th><center>#</center></th>
+						<th><center>Descrição</center></th>
+						<th><center>Tempo de Espera</center></th>
+						<th><center>Mesa</center></th>
+						<th width="160px"><center>Ações</center></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="pedido in pedidos | filter:pesquisa">
+						<td><center>{{pedido.numero}}</center></td>
+						<td><center>{{pedido.descricao}}</center></td>
+						<td><center>{{pedido.tempoEspera}}</center></td>
+						<td><center>{{pedido.mesa}}</center></td>
+						<td class="width-actions">
+							<center>
+								<a class="btn btn-success">
+									<i class="fa fa-check-square-o" aria-hidden="true"></i> Finalizar
+								</a>
+								
+								<a href="#/alterar" class="btn btn-primary">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar
+								</a>
+								
+								<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalCancelar">
+									<i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar
+								</a>
+							</center>
+						</td>
+					</tr>					  
+				</tbody>
+			</table>			
+		</div>
+		
+		
+	
+</div>
+
+
+<!-- Modal de cancelamento-->
+<div id="modalCancelar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<meta charset="UTF-8">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar Pedido</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="box">
+      		<form class="form-horizontal">
+			  <fieldset>
+			    <legend>Permissão Superior</legend>
+			    			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Descrição</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="2" id="motivo" disabled>Suco de laranja</textarea>
+			      </div>
+			    </div>			    
+			    
+			    <div class="form-group">
+			      <label for="motivo" class="col-lg-2 control-label">Motivo</label>
+			      <div class="col-lg-10">
+			        <textarea class="form-control" rows="3" id="motivo"></textarea>
+			        <span class="help-block">Digite detalhadamente o motivo do cancelamento.</span>
+			      </div>
+			    </div>
+			    
+			    <div class="form-group">
+			      <label for="senha" class="col-lg-2 control-label">Senha</label>
+			      <div class="col-lg-10">
+			        <input type="password" class="form-control" id="senha" placeholder="senha">
+			      </div>
+			    </div>
+			    
+			  </fieldset>
+			</form>
+      	</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<a class="btn btn-default" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+        <a class="btn btn-success" data-dismiss="modal"><i class="fa fa-check-square-o" aria-hidden="true"></i> Confirmar</a>
+      </div>
+    </div>
+
+  </div>
+</div>
